@@ -2,29 +2,6 @@
 import logging
 from logging.config import dictConfig
 
-log_level = logging.WARNING
-logging_config = dict(
-    version=1,
-    formatters={
-        'f':
-        {
-            'format': '%(asctime)s [Geometry3D %(levelname)s] %(message)s'
-        },
-    },
-    handlers={
-        'h':
-        {
-            'class': 'logging.StreamHandler',
-            'formatter': 'f',
-            'level': log_level
-        }
-    },
-    root={
-        'handlers': ['h'],
-        'level': log_level
-    },
-)
-dictConfig(logging_config)
 main_logger = logging.getLogger()
 
 
@@ -59,28 +36,6 @@ def set_log_level(level='WARNING'):
 
 def change_main_logger():
     global main_logger, log_level
-    logging_config = dict(
-        version=1,
-        formatters={
-            'f':
-            {
-                'format': '%(asctime)s [Geometry3D %(levelname)s] %(message)s'
-            },
-        },
-        handlers={
-            'h':
-            {
-                'class': 'logging.StreamHandler',
-                'formatter': 'f',
-                'level': log_level
-            }
-        },
-        root={
-            'handlers': ['h'],
-            'level': log_level
-        },
-    )
-    dictConfig(logging_config)
     main_logger = logging.getLogger()
 
 
